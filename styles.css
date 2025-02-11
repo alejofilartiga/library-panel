@@ -90,7 +90,7 @@ button.update, button.delete {
 }
 
 button.update {
-    background-color: #28a745;
+    background-color: #3928a7;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -100,9 +100,8 @@ button.update {
 }
 
 
-
-button.update:active {
-    background-color: #0056b3;
+button.update:hover{
+    background-color: #2a1f6a;
 }
 
 button.delete {

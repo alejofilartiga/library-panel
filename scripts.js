@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <br>Genero: ${book.genre}
                     <br>Disponible: ${book.available ? 'Si' : 'No'}
                     <div class="book-actions">
-                        <button class="update" data-id="${book._id}" data-available="${book.available}" style="background-color: ${book.available ? '' : 'blue'}">${book.available ? 'Cambiar a No Disponible' : 'Cambiar a Disponible'}</button>
+                        <button class="update" data-id="${book._id}" data-available="${book.available}" style="background-color: ${book.available}">Cambiar Disponibilidad</button>
                         <button class="delete" data-id="${book._id}">Eliminar</button>
                     </div>
                 `;
