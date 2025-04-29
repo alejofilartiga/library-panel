@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     async function createBook(bookData) {
-        const response = await fetch('https://bookapi-production-a362.up.railway.app/bookapi/', {
+        const response = await fetch('https://bookapi-jet-delta.vercel.app/bookapi/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function loadBooks() {
-        const response = await fetch('https://bookapi-production-a362.up.railway.app/bookapi/');
+        const response = await fetch('https://bookapi-jet-delta.vercel.app/bookapi/');
         const data = await response.json();
         booksList.innerHTML = '';
         if (data.books.length === 0) {
@@ -43,9 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     ${book.title} de ${book.writer} ${book.date ? `(${book.date})` : ''}
                     ${book.expirationTime ? `<br>Expira el: ${book.expirationTime}` : ''}
                     <br>Genero: ${book.genre}
-                    <br>Disponible: ${book.available ? 'Si' : 'No'}
+                    <br>Disponible: ${book.available ? '  Si' : 'No'}
                     <div class="book-actions">
-                        <button class="update" data-id="${book._id}" data-available="${book.available}" style="background-color: ${book.available}">Cambiar Disponibilidad</button>
+                        <button class="update" data-id="${book._id}" data-available="${book.available}">Cambiar Disponibilidad</button>
                         <button class="delete" data-id="${book._id}">Eliminar</button>
                     </div>
                 `;
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             button.addEventListener('click', async (e) => {
                 const id = e.target.getAttribute('data-id');
                 const available = e.target.getAttribute('data-available') === 'true' ? false : true;
-                await fetch(`https://bookapi-production-a362.up.railway.app/bookapi/${id}`, {
+                await fetch(`https://bookapi-jet-delta.vercel.app/bookapi/${id}`, {
                     method: 'PATCH',
                     headers: {
                         'Content-Type': 'application/json'
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const id = e.target.getAttribute('data-id');
                 const confirmed = confirm('¿Estás seguro de que deseas eliminar este libro?');
                 if (confirmed) {
-                    await fetch(`https://bookapi-production-a362.up.railway.app/bookapi/${id}`, {
+                    await fetch(`https://bookapi-jet-delta.vercel.app/bookapi/${id}`, {
                         method: 'DELETE'
                     });
                     loadBooks();
