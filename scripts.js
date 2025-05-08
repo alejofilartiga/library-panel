@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     async function createBook(bookData) {
-        const response = await fetch('https://bookapi-jet-delta.vercel.app/bookapi/', {
+        const response = await fetch('https://bookapi-alejo.vercel.app/bookapi/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function loadBooks() {
-        const response = await fetch('https://bookapi-jet-delta.vercel.app/bookapi/');
+        const response = await fetch('https://bookapi-alejo.vercel.app/bookapi/');
         const data = await response.json();
         booksList.innerHTML = '';
         if (data.books.length === 0) {
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             button.addEventListener('click', async (e) => {
                 const id = e.target.getAttribute('data-id');
                 const available = e.target.getAttribute('data-available') === 'true' ? false : true;
-                await fetch(`https://bookapi-jet-delta.vercel.app/bookapi/${id}`, {
+                await fetch(`https://bookapi-alejo.vercel.app/bookapi/${id}`, {
                     method: 'PATCH',
                     headers: {
                         'Content-Type': 'application/json'
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const id = e.target.getAttribute('data-id');
                 const confirmed = confirm('¿Estás seguro de que deseas eliminar este libro?');
                 if (confirmed) {
-                    await fetch(`https://bookapi-jet-delta.vercel.app/bookapi/${id}`, {
+                    await fetch(`https://bookapi-alejo.vercel.app/bookapi/${id}`, {
                         method: 'DELETE'
                     });
                     loadBooks();
