@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     async function createBook(bookData) {
-        const response = await fetch('https://bookapi-alejo.vercel.app/bookapi/', {
+        const response = await fetch('https://bookapi-alejo.vercel.app/bookapi', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function loadBooks() {
-        const response = await fetch('https://bookapi-alejo.vercel.app/bookapi/');
+        const response = await fetch('https://bookapi-alejo.vercel.app/bookapi');
         const data = await response.json();
         booksList.innerHTML = '';
         if (data.books.length === 0) {
